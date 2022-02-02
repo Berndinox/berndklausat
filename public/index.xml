@@ -1,162 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>berndklaus.at</title>
-    <link>https://berndklaus.at/</link>
-    <description>Recent content on berndklaus.at</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>Bernd K.</copyright>
-    <lastBuildDate>Tue, 04 May 2021 14:55:49 +0100</lastBuildDate><atom:link href="https://berndklaus.at/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Secure Remote Access</title>
-      <link>https://berndklaus.at/posts/secure-remote-access/</link>
-      <pubDate>Tue, 04 May 2021 14:55:49 +0100</pubDate>
-      
-      <guid>https://berndklaus.at/posts/secure-remote-access/</guid>
-      <description>Das vollständige Whitepaper ist unter nachfolgenden Download-Link abrufbar.
-Intro Das die RDP bzw. Citrix Farm gegenüber dem Internet abgesichert werden muss ist soweit klar. Wie aber können interne Systeme oder Daten gegenüber externen Dienstleistern abgeschirmt werden, welche je nach Fall bereits auf offiziell Wege den Zugriff erhalten haben.
-Wusste Sie, dass jeder Domänen-Benutzer per default alle Datenfelder des Active-Directory lesen kann. Ein externer Dienstleister mit minimalen Rechten in der Domäne kann also die Telefonnummer des CEOs auslesen.</description>
-    </item>
-    
-    <item>
-      <title>Adding ModSecurity to CloudPanel.io</title>
-      <link>https://berndklaus.at/posts/cloudpanel-io-modsecurity/</link>
-      <pubDate>Fri, 16 Oct 2020 13:55:49 +0100</pubDate>
-      
-      <guid>https://berndklaus.at/posts/cloudpanel-io-modsecurity/</guid>
-      <description>CloudPanel.io CloudPanel beschreibt sich selbst wie folgt:
-CloudPanel is a modern server control panel with lightweight components for PHP applications with specific features for all major clouds. It has been developed with more than ten years of Magento hosting experience in the AWS cloud. With CloudPanel, you can run your favorite PHP application in any cloud or dedicated server within minutes.
-Homepage: https://www.cloudpanel.ioIm unterschied zur Konkurrenz wie Beispielsweise CyberPanel, Plesk oder VestaCP konzentriet sich CloudPanel auf das wesentliche.</description>
-    </item>
-    
-    <item>
-      <title>Kubernetes - der Einsteiger-Guide</title>
-      <link>https://berndklaus.at/posts/kubernetes-guide/</link>
-      <pubDate>Mon, 29 Jun 2020 12:40:32 +0000</pubDate>
-      
-      <guid>https://berndklaus.at/posts/kubernetes-guide/</guid>
-      <description>Nachfolgenden der Download-Link zum Guide, welcher euch einen kompakten Einstieg in die Container-Technologie sowie Kubernetes ermöglicht.
-Intro „Kubernetes möchte jedem Sysadmin danken, der um 3 Uhr in der Früh geweckt wurde, um einen Prozess neu zu starten. Jedem Entwickler, der Code in die Produktivumgebung geschoben hat, um dann festzustellen, dass er dort nicht wie auf dem eigenen Laptop lief. Jedem Systemarchitekten, der unabsichtlich einen Last-test gegen den Produktivservice laufen ließ, weil irgendein Hostname nicht angepasst wurde.</description>
-    </item>
-    
-    <item>
-      <title>Serverless WordPress - High-Level</title>
-      <link>https://berndklaus.at/posts/wordpress-serverless-highspeed/</link>
-      <pubDate>Mon, 01 Jun 2020 22:40:32 +0000</pubDate>
-      
-      <guid>https://berndklaus.at/posts/wordpress-serverless-highspeed/</guid>
-      <description>Intro Im weiterem Artikel möchte ich, wie im Teaser erwähnt, die Entwicklung meiner WordPress Seite darstellen. Jedoch kommen für viele andere Anwendungen und Web-Applicationen ähnliche Entwicklungsstufen zum Einsatz. Deshalb eignet sich der folgende Beitrag auch hervorragend um einen Einblick in die unterschiedlichen Technologien und Methoden, wie sie heute zum Einsatz kommen, zu gewinnen.
-Der Beginn Vor bereits einigen Jahren begann ich mit dem Hosting auf einem einfachen virtuellen Server. Dabei werden die notwendigen Abhängigkeiten wie eine WebServer-Software und der passende PHP-Compiler auf diesem Server installiert und konfiguriert.</description>
-    </item>
-    
-    <item>
-      <title>Azure AKS dirt-cheap</title>
-      <link>https://berndklaus.at/posts/azure-aks-cheap/</link>
-      <pubDate>Fri, 10 Apr 2020 12:40:32 +0000</pubDate>
-      
-      <guid>https://berndklaus.at/posts/azure-aks-cheap/</guid>
-      <description>Kubernetes Der trend der letzten Jahre. Immer mehr Firmen springen auf und wollen Ihre Workloads dynamisch skalieren. Es haben sich bereits eine Vielzahl an Anbieter etabliert welche das Service in voll verwalteter Form zum konsum bereitstellen. Die Top-Drei Anbieter im Enterprise Segment:
- Google Cloud Amazon Web-Services Microsoft Azure  Die kosten für eine derartige Umgebung sind dabei relativ ident. Für eine genaue Hochrechnung empfiehlt sich der Kostenrechner des jeweiligen Anbieters.</description>
-    </item>
-    
-    <item>
-      <title>IOTA Whitepaper</title>
-      <link>https://berndklaus.at/posts/iota-whitepaper/</link>
-      <pubDate>Mon, 01 Apr 2019 22:40:32 +0000</pubDate>
-      
-      <guid>https://berndklaus.at/posts/iota-whitepaper/</guid>
-      <description>Unter nachfolgendem Download findet Ihr einen Guide welcher euch einen einfachen Einsteig in die Welt von IOTA bietet. Das Grundprinzip sowie die wichtigsten Funktionen und Features werden euch einfach erklärt.
- Abstract IOTA ist eine neuartige Kryptowährung, welche ihren Fokus auf den Zahlungsverkehr zwischen Internet of Things (IoT) Geräten legt. Im Fokus dieser 3rd Generation Blockchain liegen hohe Skalierbarkeit sowie gebührenfreie Transaktionen zwischen den Teilnehmern.
-#the-canvas {border: 1px solid black;direction: ltr;width: 100%;height: auto;display: none;}#paginator {display: none;text-align: center;margin-bottom: 10px;}#loadingWrapper {display: none;justify-content: center;align-items: center;width: 100%;height: 350px;}#loading {display: inline-block;width: 50px;height: 50px;border: 3px solid #d2d0d0;;border-radius: 50%;border-top-color: #383838;animation: spin 1s ease-in-out infinite;-webkit-animation: spin 1s ease-in-out infinite;}@keyframes spin {to { -webkit-transform: rotate(360deg); }}@-webkit-keyframes spin {to { -webkit-transform: rotate(360deg); }}PreviousNext&amp;nbsp; &amp;nbsp;Page:  / window.</description>
-    </item>
-    
-    <item>
-      <title>Netscaler Cipher Issue</title>
-      <link>https://berndklaus.at/posts/citrix-netscaler-cipher-group-fix/</link>
-      <pubDate>Wed, 10 Jan 2018 22:40:32 +0000</pubDate>
-      
-      <guid>https://berndklaus.at/posts/citrix-netscaler-cipher-group-fix/</guid>
-      <description>Issue Erst kürzlich stand ich vor einem verheerenden Problem. Verbindungen auf die Citrix Farm über das Externe Netscaler Gateway brachen nach 10-30 Minuten ab. Je höher die Bandbreite geht, desto schneller geshah dieses Phänomen. Dabei konnten wir einige TCP Retransmission beobachten, beendet wird die Verbindung mit einem RST.
- Zum Einsatz kommt: Netscaler MPX v 11.1 Die Lösung dieses Problem konnte nach gefühlter Ewigkeit wie folgt gefunden werden. Wireshark-Traces auf einem Span-Port des Externen Interfaces der Netscaler MPX Appliance zeigen den folgenden Eintrag:</description>
-    </item>
-    
-    <item>
-      <title>Citrix User-Detail Script</title>
-      <link>https://berndklaus.at/posts/citrix-xendesktop-detail-script/</link>
-      <pubDate>Tue, 15 Aug 2017 22:40:32 +0000</pubDate>
-      
-      <guid>https://berndklaus.at/posts/citrix-xendesktop-detail-script/</guid>
-      <description>Es ist nicht immer einfach Benutzer-Eigenschaften via Powershell abzufragen. Damit das Rad nicht jedes mal neu erfunden werden muss, habe ich ein Script für Citrix Xendesktop &amp;amp; XenApp 7 geschrieben, welches dies extrem vereinfacht.
- Unter folgendem Link findet Ihr das Script
-berndinox/Citrix-XD7-UserDetails @ Github
-Ihr könnte die Funktion in euer Script kopieren und von dieser Gebrauch machen oder das Script einfach erweitern.
-Hier einige Beispiele:
-Get-CtxUser
-ClientAddress : 10.</description>
-    </item>
-    
-    <item>
-      <title>Docker Compose v3 Realworld Exmaples</title>
-      <link>https://berndklaus.at/posts/docker-compose-v3-real-world/</link>
-      <pubDate>Mon, 15 May 2017 12:40:32 +0000</pubDate>
-      
-      <guid>https://berndklaus.at/posts/docker-compose-v3-real-world/</guid>
-      <description>Compose V3 Mit Docker Compose v3 können eine Vielzahl an Umgebungen &amp;ldquo;relativ&amp;rdquo; einfach abgebildet werden. Eine Stacks, welche als Vorlage dienen können, habe ich in einem Repoistory zusammen getragen.
- Im nachfolgendem Repostory finden sich:
- Key-Value Store (Consul) Mail (tvial/docker-mailserver) Monitoring (Prometheus Swarm) Filesharing (Nextcloud) Object-Store (Minio) Reverse-Proxy (Traefik) CMS (Wordpress)  Link Berndinox/compose-v3-collection @ GitHub</description>
-    </item>
-    
-    <item>
-      <title>Docker-CLI Bastion</title>
-      <link>https://berndklaus.at/posts/docker-secure-cli-bastionhost/</link>
-      <pubDate>Sat, 01 Apr 2017 22:40:32 +0000</pubDate>
-      
-      <guid>https://berndklaus.at/posts/docker-secure-cli-bastionhost/</guid>
-      <description>Achtung Gemäß Sicherheitsempfehlungen sollte der Docker-Socket oä. nicht mehr in einen Pod zur Verwaltung gemountet werden. Der Einsatz der unten angeführten Lösung ist also NICHT mehr empfolhen. Dennoch verbleibt der Eintrag als etwaige Referenz oder Beispiel.
-Bastion Container Nachfolgender Docker-Container hilft euch euer System zu managen. Er ermöglichst es die Docker Container auf dem darunter liegenden Host zu managen.
- Das hat einige Sicherheitsvorteile, denn so ist kein direkter Zugriff auf die Shell des Servers notwendig, sonder man befindet sich in einem abgeschotteten Container, hat jedoch dennoch vollständige root rechte für “docker” Befehle.</description>
-    </item>
-    
-    <item>
-      <title>Swarm Cluster - High-Availability</title>
-      <link>https://berndklaus.at/posts/swarm-cluster-scaleway/</link>
-      <pubDate>Wed, 15 Mar 2017 12:40:32 +0000</pubDate>
-      
-      <guid>https://berndklaus.at/posts/swarm-cluster-scaleway/</guid>
-      <description>Update 2020 Es hat sich bereits einiges getan, empfehlenswert ist aktuell der wechsel zu: Kubernetes
-Setup Nichts desto trotz ist nachfolgendes Setup immer noch umsetzbar.
- Zuerst benötigen wir 3 virtuelle Maschinen, nicht möglich ist das Setup mit den VMs “C1″ und VC1S”, da wir eine 2. Disk benötigen. In meinem Setup kommt die VM “VC1M” zum Einsatz. Als Image ist im “ImageHub” die Docker Vorlage zu wählen.
-2) Sobald die VMs provisioniert sind beginnen wir mit dem Basis-Setup:</description>
-    </item>
-    
-    <item>
-      <title>Docker Error Logs via Push</title>
-      <link>https://berndklaus.at/posts/docker-errorlogs-push/</link>
-      <pubDate>Mon, 05 Sep 2016 22:40:32 +0000</pubDate>
-      
-      <guid>https://berndklaus.at/posts/docker-errorlogs-push/</guid>
-      <description>Ihr könnt also jeden einzelnen Container mit “docker logs {ID}” abfragen, oder Ihr verwendet den alt bewährten ELK Stack. Für mich sind beide Lösungen nicht zufrieden stellend. Erstere ist einfach unpraktisch und der ELK Stack benötigt zu viele Resourcen und Wartungsaufwand. Die Lösung ist “Docker Logs via Pushover“!
- Erst kürzlich habe ich auf dem DockerHub, für diesen Zweck, folgendes Image veröffentlicht: Berndinox/fluentd-pushover @ DockerHub
-Das Prinzip ist einfach Via nativen Docker Logging Treiber werden alle Logs die innerhalb eines Containers generiert werden an die Fluentd-Pushover Container weitergeleitet.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://berndklaus.at/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://berndklaus.at/about/</guid>
-      <description>Who am I? »
-&amp;ldquo;an enthusiastic computer-nerd with an understanding
-of economics who knows how to present tech-things &amp;ldquo;
-Slogan »
-&amp;ldquo;If you always do what you&amp;rsquo;ve always done,
-you&amp;rsquo;ll always get what you&amp;rsquo;ve always got.&amp;quot; [Henry Ford]
-Topics of interest »
- Kubernetes Cloud-Ecosystem Citrix Microservices IT-Architecture IT-Security Geo-Distribution Hyperscale  Current Challanges »
- Solution Architecture @ Austrian Federal Computing Centre MSC IT-Security @ FH Technikum Wien  </description>
-    </item>
-    
-  </channel>
-</rss>
