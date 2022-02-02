@@ -11,15 +11,15 @@ of economics who knows how to present tech-things "*
 you'll always get what you've always got."* [Henry Ford]
   
 **Topics of interest** »
-- Kubernetes
-- Cloud-Ecosystem
-- Citrix
-- Microservices
-- IT-Architecture
-- IT-Security
-- Geo-Distribution
-- Hyperscale
+- Kubernetes  
+- Cloud-Ecosystem  
+- Citrix  
+- Microservices  
+- IT-Architecture  
+- IT-Security  
+- Geo-Distribution  
+- Hyperscale  
 
 **Current Challanges** »  
-- Solution Architecture @ Austrian Federal Computing Centre
+- Solution Architecture @ Austrian Federal Computing Centre  
 - MSC IT-Security @ FH Technikum Wien
