@@ -10,7 +10,7 @@ of economics who knows how to present tech-things "*
 *"If you always do what you've always done,  
 you'll always get what you've always got."* [Henry Ford]
   
-**Topics of interest** »
+**Topics of interest** »  
 - Kubernetes  
 - Cloud-Ecosystem  
 - Citrix  
