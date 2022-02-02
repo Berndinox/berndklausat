@@ -1,0 +1,63 @@
+baseURL = 'https://berndklaus.at'
+languageCode = 'en-us'
+theme = "cactus"
+title = 'berndklaus.at'
+copyright = "Bernd K." # cactus theme will use site title if copyright is not set
+
+
+[params]
+
+    colortheme = "white" #dark, light, white, or classic
+    description = "A very warm welcome to my little space, glad you found it! News or current topics concerning IT, which I actually deal with, are published here on a cyclical basis. **Topics:** *#K8s #ITSecurity #CloudComputing #EdgeComputing #DevOps #Serverless*"
+    mainSection = "posts"
+    mainSectionTitle = "Recent Posts"
+    showAllPostsOnHomePage = false
+    postsOnHomePage = 5
+    showProjectsList = true
+    projectsUrl = "https://github.com/berndinox"
+    tagsOverview = false
+    showAllPostsArchive = true
+    showReadTime = false
+
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "Posts"
+url = "/posts"
+weight = 2
+
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 4
+
+
+[[params.social]]
+  name = "github"
+  link = "https://github.com/berndinox"
+
+[[params.social]]
+  name = "email"
+  link = "bernd@klaus.onl" # no need for "mailto:" at the start
+
+[[params.social]]
+  name = "linkedin"
+  link = "https://www.linkedin.com/in/bernd-k-16b91193/"
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "github"
+    tabWidth = 4
+
+[taxonomies]
+   tag = "tags"

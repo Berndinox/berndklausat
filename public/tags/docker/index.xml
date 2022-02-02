@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on berndklaus.at</title>
+    <link>https://berndklaus.at/tags/docker/</link>
+    <description>Recent content in Docker on berndklaus.at</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Bernd K.</copyright>
+    <lastBuildDate>Mon, 15 May 2017 12:40:32 +0000</lastBuildDate><atom:link href="https://berndklaus.at/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker Compose v3 Realworld Exmaples</title>
+      <link>https://berndklaus.at/posts/docker-compose-v3-real-world/</link>
+      <pubDate>Mon, 15 May 2017 12:40:32 +0000</pubDate>
+      
+      <guid>https://berndklaus.at/posts/docker-compose-v3-real-world/</guid>
+      <description>Compose V3 Mit Docker Compose v3 können eine Vielzahl an Umgebungen &amp;ldquo;relativ&amp;rdquo; einfach abgebildet werden. Eine Stacks, welche als Vorlage dienen können, habe ich in einem Repoistory zusammen getragen.
+ Im nachfolgendem Repostory finden sich:
+ Key-Value Store (Consul) Mail (tvial/docker-mailserver) Monitoring (Prometheus Swarm) Filesharing (Nextcloud) Object-Store (Minio) Reverse-Proxy (Traefik) CMS (Wordpress)  Link Berndinox/compose-v3-collection @ GitHub</description>
+    </item>
+    
+    <item>
+      <title>Docker-CLI Bastion</title>
+      <link>https://berndklaus.at/posts/docker-secure-cli-bastionhost/</link>
+      <pubDate>Sat, 01 Apr 2017 22:40:32 +0000</pubDate>
+      
+      <guid>https://berndklaus.at/posts/docker-secure-cli-bastionhost/</guid>
+      <description>Achtung Gemäß Sicherheitsempfehlungen sollte der Docker-Socket oä. nicht mehr in einen Pod zur Verwaltung gemountet werden. Der Einsatz der unten angeführten Lösung ist also NICHT mehr empfolhen. Dennoch verbleibt der Eintrag als etwaige Referenz oder Beispiel.
+Bastion Container Nachfolgender Docker-Container hilft euch euer System zu managen. Er ermöglichst es die Docker Container auf dem darunter liegenden Host zu managen.
+ Das hat einige Sicherheitsvorteile, denn so ist kein direkter Zugriff auf die Shell des Servers notwendig, sonder man befindet sich in einem abgeschotteten Container, hat jedoch dennoch vollständige root rechte für “docker” Befehle.</description>
+    </item>
+    
+    <item>
+      <title>Swarm Cluster - High-Availability</title>
+      <link>https://berndklaus.at/posts/swarm-cluster-scaleway/</link>
+      <pubDate>Wed, 15 Mar 2017 12:40:32 +0000</pubDate>
+      
+      <guid>https://berndklaus.at/posts/swarm-cluster-scaleway/</guid>
+      <description>Update 2020 Es hat sich bereits einiges getan, empfehlenswert ist aktuell der wechsel zu: Kubernetes
+Setup Nichts desto trotz ist nachfolgendes Setup immer noch umsetzbar.
+ Zuerst benötigen wir 3 virtuelle Maschinen, nicht möglich ist das Setup mit den VMs “C1″ und VC1S”, da wir eine 2. Disk benötigen. In meinem Setup kommt die VM “VC1M” zum Einsatz. Als Image ist im “ImageHub” die Docker Vorlage zu wählen.
+2) Sobald die VMs provisioniert sind beginnen wir mit dem Basis-Setup:</description>
+    </item>
+    
+    <item>
+      <title>Docker Error Logs via Push</title>
+      <link>https://berndklaus.at/posts/docker-errorlogs-push/</link>
+      <pubDate>Mon, 05 Sep 2016 22:40:32 +0000</pubDate>
+      
+      <guid>https://berndklaus.at/posts/docker-errorlogs-push/</guid>
+      <description>Ihr könnt also jeden einzelnen Container mit “docker logs {ID}” abfragen, oder Ihr verwendet den alt bewährten ELK Stack. Für mich sind beide Lösungen nicht zufrieden stellend. Erstere ist einfach unpraktisch und der ELK Stack benötigt zu viele Resourcen und Wartungsaufwand. Die Lösung ist “Docker Logs via Pushover“!
+ Erst kürzlich habe ich auf dem DockerHub, für diesen Zweck, folgendes Image veröffentlicht: Berndinox/fluentd-pushover @ DockerHub
+Das Prinzip ist einfach Via nativen Docker Logging Treiber werden alle Logs die innerhalb eines Containers generiert werden an die Fluentd-Pushover Container weitergeleitet.</description>
+    </item>
+    
+  </channel>
+</rss>

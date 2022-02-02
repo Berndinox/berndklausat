@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Swarm on berndklaus.at</title>
+    <link>https://berndklaus.at/tags/swarm/</link>
+    <description>Recent content in Swarm on berndklaus.at</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Bernd K.</copyright>
+    <lastBuildDate>Wed, 15 Mar 2017 12:40:32 +0000</lastBuildDate><atom:link href="https://berndklaus.at/tags/swarm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Swarm Cluster - High-Availability</title>
+      <link>https://berndklaus.at/posts/swarm-cluster-scaleway/</link>
+      <pubDate>Wed, 15 Mar 2017 12:40:32 +0000</pubDate>
+      
+      <guid>https://berndklaus.at/posts/swarm-cluster-scaleway/</guid>
+      <description>Update 2020 Es hat sich bereits einiges getan, empfehlenswert ist aktuell der wechsel zu: Kubernetes
+Setup Nichts desto trotz ist nachfolgendes Setup immer noch umsetzbar.
+ Zuerst benötigen wir 3 virtuelle Maschinen, nicht möglich ist das Setup mit den VMs “C1″ und VC1S”, da wir eine 2. Disk benötigen. In meinem Setup kommt die VM “VC1M” zum Einsatz. Als Image ist im “ImageHub” die Docker Vorlage zu wählen.
+2) Sobald die VMs provisioniert sind beginnen wir mit dem Basis-Setup:</description>
+    </item>
+    
+  </channel>
+</rss>

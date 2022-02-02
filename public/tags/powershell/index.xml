@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PowerShell on berndklaus.at</title>
+    <link>https://berndklaus.at/tags/powershell/</link>
+    <description>Recent content in PowerShell on berndklaus.at</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Bernd K.</copyright>
+    <lastBuildDate>Tue, 15 Aug 2017 22:40:32 +0000</lastBuildDate><atom:link href="https://berndklaus.at/tags/powershell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Citrix User-Detail Script</title>
+      <link>https://berndklaus.at/posts/citrix-xendesktop-detail-script/</link>
+      <pubDate>Tue, 15 Aug 2017 22:40:32 +0000</pubDate>
+      
+      <guid>https://berndklaus.at/posts/citrix-xendesktop-detail-script/</guid>
+      <description>Es ist nicht immer einfach Benutzer-Eigenschaften via Powershell abzufragen. Damit das Rad nicht jedes mal neu erfunden werden muss, habe ich ein Script für Citrix Xendesktop &amp;amp; XenApp 7 geschrieben, welches dies extrem vereinfacht.
+ Unter folgendem Link findet Ihr das Script
+berndinox/Citrix-XD7-UserDetails @ Github
+Ihr könnte die Funktion in euer Script kopieren und von dieser Gebrauch machen oder das Script einfach erweitern.
+Hier einige Beispiele:
+Get-CtxUser
+ClientAddress : 10.</description>
+    </item>
+    
+  </channel>
+</rss>

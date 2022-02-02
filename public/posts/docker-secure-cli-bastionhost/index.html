@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <script type="text/javascript" src="https://latest.cactus.chat/cactus.js"></script>
+  <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Docker-CLI Bastion | berndklaus.at</title>
+  <link rel = 'canonical' href = 'https://berndklaus.at/posts/docker-secure-cli-bastionhost/'>
+  <meta name="description" content="A very warm welcome to my little space, glad you found it! News or current topics concerning IT, which I actually deal with, are published here on a cyclical basis. **Topics:** *#K8s #ITSecurity #CloudComputing #EdgeComputing #DevOps #Serverless*">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Docker-CLI Bastion" />
+<meta property="og:description" content="Achtung Gemäß Sicherheitsempfehlungen sollte der Docker-Socket oä. nicht mehr in einen Pod zur Verwaltung gemountet werden. Der Einsatz der unten angeführten Lösung ist also NICHT mehr empfolhen. Dennoch verbleibt der Eintrag als etwaige Referenz oder Beispiel.
+Bastion Container Nachfolgender Docker-Container hilft euch euer System zu managen. Er ermöglichst es die Docker Container auf dem darunter liegenden Host zu managen.
+ Das hat einige Sicherheitsvorteile, denn so ist kein direkter Zugriff auf die Shell des Servers notwendig, sonder man befindet sich in einem abgeschotteten Container, hat jedoch dennoch vollständige root rechte für “docker” Befehle." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://berndklaus.at/posts/docker-secure-cli-bastionhost/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-04-01T22:40:32+00:00" />
+<meta property="article:modified_time" content="2017-04-01T22:40:32+00:00" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Docker-CLI Bastion"/>
+<meta name="twitter:description" content="Achtung Gemäß Sicherheitsempfehlungen sollte der Docker-Socket oä. nicht mehr in einen Pod zur Verwaltung gemountet werden. Der Einsatz der unten angeführten Lösung ist also NICHT mehr empfolhen. Dennoch verbleibt der Eintrag als etwaige Referenz oder Beispiel.
+Bastion Container Nachfolgender Docker-Container hilft euch euer System zu managen. Er ermöglichst es die Docker Container auf dem darunter liegenden Host zu managen.
+ Das hat einige Sicherheitsvorteile, denn so ist kein direkter Zugriff auf die Shell des Servers notwendig, sonder man befindet sich in einem abgeschotteten Container, hat jedoch dennoch vollständige root rechte für “docker” Befehle."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://berndklaus.at/css/styles.aad1faec83a1003df3ee7287b7bdee1cb3a7b411021436c32f37e0c55ac71264c3944bcc1b35e12ac6c9f0249afdca485a9f510d1685639a35c84ba9367d6a6e.css" integrity="sha512-qtH67IOhAD3z7nKHt73uHLOntBECFDbDLzfgxVrHEmTDlEvMGzXhKsbJ8CSa/cpIWp9RDRaFY5o1yEupNn1qbg=="> 
+
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://berndklaus.at/images/favicon.ico" />
+
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Posts</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://berndklaus.at/posts/swarm-cluster-scaleway/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="https://berndklaus.at/posts/docker-compose-v3-real-world/" aria-label="Next">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
+          </a>
+        </li>
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fberndklaus.at%2fposts%2fdocker-secure-cli-bastionhost%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fberndklaus.at%2fposts%2fdocker-secure-cli-bastionhost%2f&text=Docker-CLI%20Bastion" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fberndklaus.at%2fposts%2fdocker-secure-cli-bastionhost%2f&title=Docker-CLI%20Bastion" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fberndklaus.at%2fposts%2fdocker-secure-cli-bastionhost%2f&is_video=false&description=Docker-CLI%20Bastion" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Docker-CLI%20Bastion&body=Check out this article: https%3a%2f%2fberndklaus.at%2fposts%2fdocker-secure-cli-bastionhost%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fberndklaus.at%2fposts%2fdocker-secure-cli-bastionhost%2f&title=Docker-CLI%20Bastion" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fberndklaus.at%2fposts%2fdocker-secure-cli-bastionhost%2f&title=Docker-CLI%20Bastion" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fberndklaus.at%2fposts%2fdocker-secure-cli-bastionhost%2f&name=Docker-CLI%20Bastion&description=Achtung%20Gem%c3%a4%c3%9f%20Sicherheitsempfehlungen%20sollte%20der%20Docker-Socket%20o%c3%a4.%20nicht%20mehr%20in%20einen%20Pod%20zur%20Verwaltung%20gemountet%20werden.%20Der%20Einsatz%20der%20unten%20angef%c3%bchrten%20L%c3%b6sung%20ist%20also%20NICHT%20mehr%20empfolhen.%20Dennoch%20verbleibt%20der%20Eintrag%20als%20etwaige%20Referenz%20oder%20Beispiel.%0aBastion%20Container%20Nachfolgender%20Docker-Container%20hilft%20euch%20euer%20System%20zu%20managen.%20Er%20erm%c3%b6glichst%20es%20die%20Docker%20Container%20auf%20dem%20darunter%20liegenden%20Host%20zu%20managen.%0a%20Das%20hat%20einige%20Sicherheitsvorteile%2c%20denn%20so%20ist%20kein%20direkter%20Zugriff%20auf%20die%20Shell%20des%20Servers%20notwendig%2c%20sonder%20man%20befindet%20sich%20in%20einem%20abgeschotteten%20Container%2c%20hat%20jedoch%20dennoch%20vollst%c3%a4ndige%20root%20rechte%20f%c3%bcr%20%e2%80%9cdocker%e2%80%9d%20Befehle." aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fberndklaus.at%2fposts%2fdocker-secure-cli-bastionhost%2f&t=Docker-CLI%20Bastion" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#achtung">Achtung</a></li>
+    <li><a href="#bastion-container">Bastion Container</a></li>
+    <li><a href="#link">Link</a></li>
+  </ul>
+</nav>
+    </div>
+    
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Docker-CLI Bastion
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2017-04-01 22:40:32.169 &#43;0000 UTC" itemprop="datePublished">2017-04-01</time>
+          
+        </div>
+        
+        
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="/tags/docker" rel="tag">Docker</a>
+            
+             ,  
+            <a class="tag-link" href="/tags/cli" rel="tag">CLI</a>
+            
+             ,  
+            <a class="tag-link" href="/tags/security" rel="tag">Security</a>
+            
+             ,  
+            <a class="tag-link" href="/tags/container" rel="tag">Container</a>
+            
+        </div>
+        
+      </div>
+    </header>
+
+  
+    
+    <div class="content" itemprop="articleBody">
+      <h2 id="achtung">Achtung</h2>
+<p>Gemäß Sicherheitsempfehlungen sollte der Docker-Socket oä. nicht mehr in einen Pod zur Verwaltung gemountet werden.
+Der Einsatz der unten angeführten Lösung ist also NICHT mehr empfolhen.
+Dennoch verbleibt der Eintrag als etwaige Referenz oder Beispiel.</p>
+<h2 id="bastion-container">Bastion Container</h2>
+<p>Nachfolgender Docker-Container hilft euch euer System zu managen. Er ermöglichst es die Docker Container auf dem darunter liegenden Host zu managen.</p>
+<figure><img src="/images/docker.png"
+         alt="docker" width="200px"/>
+</figure>
+
+<p>Das hat einige Sicherheitsvorteile, denn so ist kein direkter Zugriff auf die Shell des Servers notwendig, sonder man befindet sich in einem abgeschotteten Container, hat jedoch dennoch vollständige root rechte für “docker” Befehle.</p>
+<p>Zusätzlich kann man, wenn man am Root-Server mehrere IP Adressen verfügbar hat, die Haupt IP Adresse “verstecken”, des weiteren habe ich Google OTP PAM Modul implementiert, welches per default auch aktiviert ist.</p>
+<p>Der Container kann wie folgt gestartet werden:</p>
+<pre tabindex="0"><code>docker run -d -p IP-TO-PUBLISH:22:22 -e PASSWORD=SuperGeheim -v /etc/localtime:/etc/localtime:ro -v /var/run/docker.sock:/var/run/docker.sock berndinox/docker-bastionhost
+</code></pre><p>Oder via <strong>Compose</strong>:</p>
+<pre tabindex="0"><code>version: '3.2'
+
+services:
+  ssh:
+    image: berndinox/docker-bastionhost
+    deploy:
+      replicas: 1
+    ports:
+      - &quot;IP:22:22&quot;
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+      - data:/data
+    environment:
+      - PASSWORD=SECRET
+
+volumes:
+  data:
+    driver: DRIVER
+    driver_opts:
+      mountpoint: /data
+</code></pre><p>Abschließen, zum generieren der OTP Konfiguration, bzw des QR Codes:</p>
+<pre tabindex="0"><code>docker exec -it DOCKERID google-authenticator
+</code></pre><h2 id="link">Link</h2>
+<p><a href="https://github.com/Berndinox/docker-bastionhost" target="_blank">Berndinox/dockerbastionhost</a>
+ @ Github</p>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/posts">Posts</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#achtung">Achtung</a></li>
+    <li><a href="#bastion-container">Bastion Container</a></li>
+    <li><a href="#link">Link</a></li>
+  </ul>
+</nav>
+    </div>
+    
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fberndklaus.at%2fposts%2fdocker-secure-cli-bastionhost%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fberndklaus.at%2fposts%2fdocker-secure-cli-bastionhost%2f&text=Docker-CLI%20Bastion" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fberndklaus.at%2fposts%2fdocker-secure-cli-bastionhost%2f&title=Docker-CLI%20Bastion" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fberndklaus.at%2fposts%2fdocker-secure-cli-bastionhost%2f&is_video=false&description=Docker-CLI%20Bastion" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Docker-CLI%20Bastion&body=Check out this article: https%3a%2f%2fberndklaus.at%2fposts%2fdocker-secure-cli-bastionhost%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fberndklaus.at%2fposts%2fdocker-secure-cli-bastionhost%2f&title=Docker-CLI%20Bastion" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fberndklaus.at%2fposts%2fdocker-secure-cli-bastionhost%2f&title=Docker-CLI%20Bastion" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fberndklaus.at%2fposts%2fdocker-secure-cli-bastionhost%2f&name=Docker-CLI%20Bastion&description=Achtung%20Gem%c3%a4%c3%9f%20Sicherheitsempfehlungen%20sollte%20der%20Docker-Socket%20o%c3%a4.%20nicht%20mehr%20in%20einen%20Pod%20zur%20Verwaltung%20gemountet%20werden.%20Der%20Einsatz%20der%20unten%20angef%c3%bchrten%20L%c3%b6sung%20ist%20also%20NICHT%20mehr%20empfolhen.%20Dennoch%20verbleibt%20der%20Eintrag%20als%20etwaige%20Referenz%20oder%20Beispiel.%0aBastion%20Container%20Nachfolgender%20Docker-Container%20hilft%20euch%20euer%20System%20zu%20managen.%20Er%20erm%c3%b6glichst%20es%20die%20Docker%20Container%20auf%20dem%20darunter%20liegenden%20Host%20zu%20managen.%0a%20Das%20hat%20einige%20Sicherheitsvorteile%2c%20denn%20so%20ist%20kein%20direkter%20Zugriff%20auf%20die%20Shell%20des%20Servers%20notwendig%2c%20sonder%20man%20befindet%20sich%20in%20einem%20abgeschotteten%20Container%2c%20hat%20jedoch%20dennoch%20vollst%c3%a4ndige%20root%20rechte%20f%c3%bcr%20%e2%80%9cdocker%e2%80%9d%20Befehle." aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fberndklaus.at%2fposts%2fdocker-secure-cli-bastionhost%2f&t=Docker-CLI%20Bastion" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2022  Bernd K. 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Posts</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+
+<script src=/js/code-copy.js></script>
+
+
+
+
+</html>
