@@ -1,6 +1,6 @@
 baseURL = 'https://berndklaus.at'
 languageCode = 'en-us'
-theme = "cactus"
+theme = "hugo-theme-cactus"
 title = 'berndklaus.at'
 copyright = "Bernd K." # cactus theme will use site title if copyright is not set
 
