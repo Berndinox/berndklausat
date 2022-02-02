@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pushover on berndklaus.at</title>
+    <link>https://berndklaus.at/tags/pushover/</link>
+    <description>Recent content in Pushover on berndklaus.at</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Bernd K.</copyright>
+    <lastBuildDate>Mon, 05 Sep 2016 22:40:32 +0000</lastBuildDate><atom:link href="https://berndklaus.at/tags/pushover/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker Error Logs via Push</title>
+      <link>https://berndklaus.at/posts/docker-errorlogs-push/</link>
+      <pubDate>Mon, 05 Sep 2016 22:40:32 +0000</pubDate>
+      
+      <guid>https://berndklaus.at/posts/docker-errorlogs-push/</guid>
+      <description>Ihr könnt also jeden einzelnen Container mit “docker logs {ID}” abfragen, oder Ihr verwendet den alt bewährten ELK Stack. Für mich sind beide Lösungen nicht zufrieden stellend. Erstere ist einfach unpraktisch und der ELK Stack benötigt zu viele Resourcen und Wartungsaufwand. Die Lösung ist “Docker Logs via Pushover“!
+ Erst kürzlich habe ich auf dem DockerHub, für diesen Zweck, folgendes Image veröffentlicht: Berndinox/fluentd-pushover @ DockerHub
+Das Prinzip ist einfach Via nativen Docker Logging Treiber werden alle Logs die innerhalb eines Containers generiert werden an die Fluentd-Pushover Container weitergeleitet.</description>
+    </item>
+    
+  </channel>
+</rss>

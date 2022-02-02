@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ModSecurity on berndklaus.at</title>
+    <link>https://berndklaus.at/tags/modsecurity/</link>
+    <description>Recent content in ModSecurity on berndklaus.at</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Bernd K.</copyright>
+    <lastBuildDate>Fri, 16 Oct 2020 13:55:49 +0100</lastBuildDate><atom:link href="https://berndklaus.at/tags/modsecurity/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Adding ModSecurity to CloudPanel.io</title>
+      <link>https://berndklaus.at/posts/cloudpanel-io-modsecurity/</link>
+      <pubDate>Fri, 16 Oct 2020 13:55:49 +0100</pubDate>
+      
+      <guid>https://berndklaus.at/posts/cloudpanel-io-modsecurity/</guid>
+      <description>CloudPanel.io CloudPanel beschreibt sich selbst wie folgt:
+CloudPanel is a modern server control panel with lightweight components for PHP applications with specific features for all major clouds. It has been developed with more than ten years of Magento hosting experience in the AWS cloud. With CloudPanel, you can run your favorite PHP application in any cloud or dedicated server within minutes.
+Homepage: https://www.cloudpanel.ioIm unterschied zur Konkurrenz wie Beispielsweise CyberPanel, Plesk oder VestaCP konzentriet sich CloudPanel auf das wesentliche.</description>
+    </item>
+    
+  </channel>
+</rss>

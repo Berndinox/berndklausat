@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Examples on berndklaus.at</title>
+    <link>https://berndklaus.at/tags/examples/</link>
+    <description>Recent content in Examples on berndklaus.at</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Bernd K.</copyright>
+    <lastBuildDate>Mon, 15 May 2017 12:40:32 +0000</lastBuildDate><atom:link href="https://berndklaus.at/tags/examples/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker Compose v3 Realworld Exmaples</title>
+      <link>https://berndklaus.at/posts/docker-compose-v3-real-world/</link>
+      <pubDate>Mon, 15 May 2017 12:40:32 +0000</pubDate>
+      
+      <guid>https://berndklaus.at/posts/docker-compose-v3-real-world/</guid>
+      <description>Compose V3 Mit Docker Compose v3 können eine Vielzahl an Umgebungen &amp;ldquo;relativ&amp;rdquo; einfach abgebildet werden. Eine Stacks, welche als Vorlage dienen können, habe ich in einem Repoistory zusammen getragen.
+ Im nachfolgendem Repostory finden sich:
+ Key-Value Store (Consul) Mail (tvial/docker-mailserver) Monitoring (Prometheus Swarm) Filesharing (Nextcloud) Object-Store (Minio) Reverse-Proxy (Traefik) CMS (Wordpress)  Link Berndinox/compose-v3-collection @ GitHub</description>
+    </item>
+    
+  </channel>
+</rss>
