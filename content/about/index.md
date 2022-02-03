@@ -9,6 +9,8 @@ of economics who knows how to present tech-things "*
 **Slogan**  »  
 *"If you always do what you've always done,  
 you'll always get what you've always got."* [Henry Ford]
+
+{{< figure src="/images/logo.png" alt="aks" width="250px" >}}
   
 **Topics of interest** »  
 - Kubernetes  
@@ -23,3 +25,5 @@ you'll always get what you've always got."* [Henry Ford]
 **Current Challanges** »  
 - Solution Architecture @ Austrian Federal Computing Centre  
 - MSC IT-Security @ FH Technikum Wien
+
+
