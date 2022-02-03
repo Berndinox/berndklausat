@@ -58,5 +58,10 @@ weight = 4
     style = "github"
     tabWidth = 4
 
+pygmentsUseClasses = false
+pygmentsCodefences = true
+pygmentsStyle = "github"
+
+
 [taxonomies]
    tag = "tags"
