@@ -7,7 +7,7 @@ copyright = "Bernd K." # cactus theme will use site title if copyright is not se
 
 [params]
     colortheme = "white" #dark, light, white, or classic
-    description = "A very warm welcome to my little space, glad you found it! News or current topics concerning IT, which I actually deal with, are published here on a cyclical basis. <br /><b> Topics:</b> <i>#K8s #ITSecurity #CloudComputing #EdgeComputing #DevOps #Serverless</i>"
+    description = "A very warm welcome to my little space, glad you found it! News or current topics concerning IT, which I actually deal with, are published here on a cyclical basis.     Topics: #K8s #ITSecurity #CloudComputing #EdgeComputing #DevOps #Serverless"
     mainSection = "posts"
     mainSectionTitle = "Recent Posts"
     showAllPostsOnHomePage = false
