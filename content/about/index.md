@@ -22,8 +22,10 @@ you'll always get what you've always got."* [Henry Ford]
 - Geo-Distribution  
 - Hyperscale  
 
-**Current Challanges** »  
+**~~Current Challanges~~ FINISHED** »  
 - Solution Architecture @ Austrian Federal Computing Centre  
 - MSC IT-Security @ FH Technikum Wien
 
+**Next** »
+- Product Managment @ A1.net
 
